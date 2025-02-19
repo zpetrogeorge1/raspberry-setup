@@ -9,11 +9,11 @@ PYTHON_BIN = os.path.join(PYTHON_BUILD_DIR, "python3.9")
 def run_command(command, description):
     """Run a shell command and print output."""
     print(f"\n[+] {description}...")
-    result = subprocess.run(command, shell=True, capture_output=True,, text=True)
-    if result.returncode == 0;
+    result = subprocess.run(command, shell=True, capture_output=True, text=True)
+    if result.returncode == 0:
         print(f"Success: {description}")
     else:
-        print(f"Error: {description}\m{result.stderr}")
+        print(f"Error: {description}\n{result.stderr}")
 
 def check_local_python():
     """Check if the locally built Python 3.9.10 exists."""
@@ -47,10 +47,9 @@ def create_virtual_environment():
         print("Virtual environment already exists")
 
 def activate_and_setup():
-    """Activate virtual environment and install esential packages."""
-    activate_command = f"source {VENV_DIR}/bin/activate && "
-    run_command(activate_command + "pip install --upgrade pip", "Upgrading pip")
-    run_command(activate_command + "pip install numpy matplotlib", "Installing essential packages")
+    """Activate virtual environment and install essential packages."""
+    run_command(f"{VENV_DIR}/bin/python -m pip install --upgrade pip", "Upgrading pip")
+    run_command(f"{VENV_DIR}/bin/python -m pip install numpy matplotlib", "Installing essential packages")
 
 def main():
     print("Starting Virtual Environment Setup with Python 3.9.10")
@@ -59,7 +58,7 @@ def main():
     activate_and_setup()
 
     print("\nSetup complete! to activate the virtual environment, run:")
-    print(f"    source{VENV_DIR}/bin/activate")
+    print(f"    source {VENV_DIR}/bin/activate")
     print(f"    python --version # Should print {PYTHON_VERSION}")
 
 if __name__ == "__main__":
