@@ -42,7 +42,7 @@ def create_virtual_environment():
         build_python()
     
     if not os.path.exists(VENV_DIR):
-        run_command(f"{PYTHON_BIN} -m venv {VENV_DIR}", f"Creating virtual envirnoment with Python {PYTHON_VERSION}")
+        run_command(f"{PYTHON_BIN} -m venv {VENV_DIR}", f"Creating virtual environment with Python {PYTHON_VERSION}")
     else:
         print("Virtual environment already exists")
 
