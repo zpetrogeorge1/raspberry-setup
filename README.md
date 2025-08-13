@@ -1,3 +1,4 @@
+#Raspberry Pi Setup Script
 This repository includes a Python script that automatically creates a virtual environment that runs its own Python version.
 
 The script also automatically installs dependencies that can be changed changed in the script depending on the use of the virtual environment.
